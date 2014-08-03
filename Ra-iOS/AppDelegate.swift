@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
   var beaconRegion: CLBeaconRegion?
   var defaults = NSUserDefaults.standardUserDefaults()
   var locationManager: CLLocationManager = CLLocationManager()
-  var nearestBeacon: String?
+//  var nearestBeacon: String?
   var proximity: Float?
   var brains: Array<Brain>!
 
@@ -78,17 +78,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
   
   func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
 
-//    if defaults.boolForKey("homeMachineLearningOn") {
       if (beacons.count > 0){
-//        println("we made it \(beacons.count)")
+        var nearestBeacon: CLBeacon!
+        var nearest = -1000
         for beacon in beacons as [CLBeacon] {
-//          println("beacon \(beacon)")
-          switch beacon.proximity {
+          println("Major: \(beacon.major) Minor: \(beacon.minor) RSSI: \(beacon.rssi)")
+          if (beacon.rssi  > nearest) { nearestBeacon = beacon }
+        }
+        
+        println(nearestBeacon.proximity)
+        switch nearestBeacon.proximity  {
           case .Immediate, .Near: proximity = 1.0
-          case .Far: proximity = 0.0
-          default: nearestBeacon = nil; continue
-          }
-          nearestBeacon = "\(beacon.major)+\(beacon.minor)"
+          default: proximity = 0.0
+        }
+
+        var beaconID = "\(nearestBeacon.major)"
+        defaults.setObject(beaconID, forKey: "nearestBeacon")
+        defaults.synchronize()
+    
+//        for beacon in beacons as [CLBeacon] {
+//          println("beacon \(beacon)")
+          
+          
+
+//          nearestBeacon = "\(beacon.major)+\(beacon.minor)"
           //          println("Beacon: \(nearestBeacon) \\ Proximity: \(proximity)")
 
           //          println("Action: \(action)")
@@ -97,9 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 //          case -1.0:  LightAPI.sharedInstance.lifx.stateOn = false
 //          default: continue
 //          }
-        }
+//        }
       }
-//    }
   }
   
   func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {

@@ -13,7 +13,6 @@
 		E679604D198D799400C21DBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E679604B198D799400C21DBE /* Main.storyboard */; };
 		E679604F198D799400C21DBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E679604E198D799400C21DBE /* Images.xcassets */; };
 		E679605B198D799500C21DBE /* Ra_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679605A198D799500C21DBE /* Ra_iOSTests.swift */; };
-		E6796068198D922900C21DBE /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6796067198D922900C21DBE /* LightsTableViewController.swift */; };
 		E679606A198DA10300C21DBE /* FirebaseLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6796069198DA10300C21DBE /* FirebaseLight.swift */; };
 		E679606C198DA22400C21DBE /* LightAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679606B198DA22400C21DBE /* LightAPI.swift */; };
 		E679606F198DA2B100C21DBE /* RaLightProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679606E198DA2B100C21DBE /* RaLightProtocol.swift */; };
@@ -44,7 +43,6 @@
 		E6796059198D799500C21DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E679605A198D799500C21DBE /* Ra_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ra_iOSTests.swift; sourceTree = "<group>"; };
 		E6796064198D864500C21DBE /* Ra-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ra-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		E6796067198D922900C21DBE /* LightsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		E6796069198DA10300C21DBE /* FirebaseLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseLight.swift; sourceTree = "<group>"; };
 		E679606B198DA22400C21DBE /* LightAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightAPI.swift; sourceTree = "<group>"; };
 		E679606E198DA2B100C21DBE /* RaLightProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaLightProtocol.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				E6796074198E5EA500C21DBE /* Machine Learning */,
 				E679606D198DA25E00C21DBE /* Lights */,
 				E6796047198D799400C21DBE /* AppDelegate.swift */,
-				E6796067198D922900C21DBE /* LightsTableViewController.swift */,
 				E6796049198D799400C21DBE /* ViewController.swift */,
 				E679604B198D799400C21DBE /* Main.storyboard */,
 				E679604E198D799400C21DBE /* Images.xcassets */,
@@ -306,7 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6796071198DA36500C21DBE /* LifxLight.swift in Sources */,
-				E6796068198D922900C21DBE /* LightsTableViewController.swift in Sources */,
 				E679606F198DA2B100C21DBE /* RaLightProtocol.swift in Sources */,
 				E679604A198D799400C21DBE /* ViewController.swift in Sources */,
 				E6796048198D799400C21DBE /* AppDelegate.swift in Sources */,

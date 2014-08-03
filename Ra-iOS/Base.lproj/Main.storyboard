@@ -5,53 +5,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
-        <!--Ra-->
-        <scene sceneID="a28-eD-wce">
-            <objects>
-                <tableViewController id="9sD-NF-QmQ" customClass="LightsTableViewController" customModule="Ra_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BHW-bW-DPe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lightCell" id="aFC-Uc-ndt">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aFC-Uc-ndt" id="2py-0k-8lp">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="Q4C-hh-mTP"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9sD-NF-QmQ" id="OOB-4W-Pyg"/>
-                            <outlet property="delegate" destination="9sD-NF-QmQ" id="h3t-5X-L3Q"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Ra" id="UFA-d5-2PA"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vAO-NC-qMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-488" y="323"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cfG-2Z-NMZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3p-QT-6CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="ZYo-Xe-QAW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SVf-NH-nc9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="9sD-NF-QmQ" kind="relationship" relationship="rootViewController" id="DHF-ao-bCA"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="UXK-GV-aJf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a3p-QT-6CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="322"/>
+            <point key="canvasLocation" x="-450" y="323"/>
         </scene>
-        <!--View Controller-->
+        <!--Ra Light-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Ra_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,14 +34,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2LF-0A-0NJ" customClass="HRColorPickerView">
-                                <rect key="frame" x="0.0" y="96" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="535"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIm-EP-6fy" customClass="HRColorInfoView">
-                                        <rect key="frame" x="8" y="10" width="66" height="84"/>
+                                        <rect key="frame" x="8" y="41" width="66" height="84"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBI-Zs-Otv" customClass="HRBrightnessSlider">
-                                        <rect key="frame" x="83" y="65" width="228" height="11"/>
+                                        <rect key="frame" x="83" y="96" width="228" height="11"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
@@ -80,7 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-WA-fRw" customClass="HRColorMapView">
-                                        <rect key="frame" x="0.0" y="104" width="320" height="400"/>
+                                        <rect key="frame" x="0.0" y="135" width="320" height="400"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="saturationUpperLimit">
@@ -92,13 +62,42 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ofr-4I-Y5V">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="10"/>
+                                        <rect key="frame" x="0.0" y="31" width="100" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkq-WP-gwZ">
-                                        <rect key="frame" x="0.0" y="94" width="100" height="10"/>
+                                        <rect key="frame" x="0.0" y="125" width="100" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYo-ve-GhO">
+                                        <rect key="frame" x="251" y="41" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="togglePower:" destination="vXZ-lx-hvc" eventType="valueChanged" id="87B-eu-zd5"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="💡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="An4-cR-m83">
+                                        <rect key="frame" x="262" y="10" width="26" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pbD-kd-7Wg">
+                                        <rect key="frame" x="93" y="43" width="137" height="29"/>
+                                        <segments>
+                                            <segment title="1"/>
+                                            <segment title="2"/>
+                                            <segment title="3"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectUser:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Xt2-b1-FY6"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="👤" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIm-Cq-Sdb">
+                                        <rect key="frame" x="149" y="10" width="25" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -115,12 +114,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Ra Light" id="qS8-lr-4Ya">
+                        <barButtonItem key="rightBarButtonItem" title="Set Light" id="Asy-2V-dY5">
+                            <connections>
+                                <action selector="trainML:" destination="vXZ-lx-hvc" id="k1M-pQ-xsD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="colorPickerView" destination="2LF-0A-0NJ" id="Nfi-Ro-ye0"/>
+                        <outlet property="powerSwitch" destination="uYo-ve-GhO" id="rKm-4X-tp8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="309" y="323"/>
         </scene>
     </scenes>
 </document>
