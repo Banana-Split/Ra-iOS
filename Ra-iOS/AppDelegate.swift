@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
   var locationManager: CLLocationManager = CLLocationManager()
   var nearestBeacon: String?
   var proximity: Float?
+  var brains: Array<Brain>!
 
   func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
     // Override point for customization after application launch.
@@ -32,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     locationManager.startMonitoringForRegion(beaconRegion)
     locationManager.startRangingBeaconsInRegion(beaconRegion)
+    
+    var newBrain = Brain()
+    newBrain.learn(4, proxmity: 1, on: true, r: 0, g: 0, b: 0)
+    newBrain.learn(1, proxmity: 2, on: false, r: 0, g: 0, b: 0)
+    newBrain.learn(2, proxmity: 2, on: false, r: 0, g: 0, b: 0)
+    
+    newBrain.train()
+    
+    println(newBrain.decide(1, proxmity: 2));
     return true
   }
 

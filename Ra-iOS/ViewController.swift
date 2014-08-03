@@ -10,10 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
   
-//  @IBOutlet weak var brightnessSlider: HRBrightnessSlider!
-//  @IBOutlet weak var colorInfo: HRColorInfoView!
-//  @IBOutlet weak var colorMapView: HRColorMapView!
-
   @IBOutlet weak var colorPickerView: HRColorPickerView!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,7 +20,7 @@ class ViewController: UIViewController {
     colorPickerView.addTarget(self, action: "changeColor:", forControlEvents: UIControlEvents.ValueChanged)
 //    self.view.addSubview(colorPicker)
     
-//    colorMapView.tileSize = 16
+
     
   }
 
@@ -34,12 +30,9 @@ class ViewController: UIViewController {
   }
 
   func changeColor(pickerView: HRColorPickerView) {
-    println("boom \(pickerView.color)")
-//    var (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = (0.0, 0.0, 0.0, 0.0)
-//    pickerView.color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-//    
-
+    println("setting color \(pickerView.color)")
     LightAPI.sharedInstance.firebaseLight.color = pickerView.color
+    LightAPI.sharedInstance.lifx.color = pickerView.color
   }
   
 

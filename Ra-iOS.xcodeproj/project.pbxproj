@@ -19,6 +19,7 @@
 		E679606F198DA2B100C21DBE /* RaLightProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679606E198DA2B100C21DBE /* RaLightProtocol.swift */; };
 		E6796071198DA36500C21DBE /* LifxLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6796070198DA36500C21DBE /* LifxLight.swift */; };
 		E6796073198DD0FD00C21DBE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6796072198DD0FD00C21DBE /* CoreLocation.framework */; };
+		E6796077198E5F0000C21DBE /* Brain.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6796076198E5F0000C21DBE /* Brain.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		E679606E198DA2B100C21DBE /* RaLightProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaLightProtocol.swift; sourceTree = "<group>"; };
 		E6796070198DA36500C21DBE /* LifxLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifxLight.swift; sourceTree = "<group>"; };
 		E6796072198DD0FD00C21DBE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E6796075198E5F0000C21DBE /* Brain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brain.h; sourceTree = "<group>"; };
+		E6796076198E5F0000C21DBE /* Brain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Brain.mm; sourceTree = "<group>"; };
 		F13A79D618FC4BD29D24A295 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +107,7 @@
 		E6796044198D799400C21DBE /* Ra-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E6796074198E5EA500C21DBE /* Machine Learning */,
 				E679606D198DA25E00C21DBE /* Lights */,
 				E6796047198D799400C21DBE /* AppDelegate.swift */,
 				E6796067198D922900C21DBE /* LightsTableViewController.swift */,
@@ -150,6 +154,15 @@
 				E679606B198DA22400C21DBE /* LightAPI.swift */,
 			);
 			name = Lights;
+			sourceTree = "<group>";
+		};
+		E6796074198E5EA500C21DBE /* Machine Learning */ = {
+			isa = PBXGroup;
+			children = (
+				E6796075198E5F0000C21DBE /* Brain.h */,
+				E6796076198E5F0000C21DBE /* Brain.mm */,
+			);
+			name = "Machine Learning";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +311,7 @@
 				E679604A198D799400C21DBE /* ViewController.swift in Sources */,
 				E6796048198D799400C21DBE /* AppDelegate.swift in Sources */,
 				E679606A198DA10300C21DBE /* FirebaseLight.swift in Sources */,
+				E6796077198E5F0000C21DBE /* Brain.mm in Sources */,
 				E679606C198DA22400C21DBE /* LightAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
