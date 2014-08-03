@@ -66,7 +66,8 @@ class FirebaseLight: RaLightProtocol {
   }
   set {
     newValue?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-    fb.setValue(["on": true, "h": hue, "s": saturation, "b": brightness, "a": alpha])
+    var hexColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha).RGBHexString()
+    fb.setValue(["on": true, "h": hue, "s": saturation, "b": brightness, "a": alpha, "hex": "#\(hexColor)"])
   }
   }
 }

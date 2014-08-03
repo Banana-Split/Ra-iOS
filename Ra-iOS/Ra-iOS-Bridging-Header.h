@@ -9,6 +9,7 @@
 #import <HRColorMapView.h>
 #import <HRColorInfoView.h>
 #import <HRBrightnessSlider.h>
+#import <UIColor+Additions.h>
 #ifdef __cplusplus
 #import <opencv2/opencv.hpp>
 #endif

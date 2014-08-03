@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
                             
   var window: UIWindow?
-
+  
+  var beaconRegion: CLBeaconRegion?
+  var defaults = NSUserDefaults.standardUserDefaults()
+  var locationManager: CLLocationManager = CLLocationManager()
+  var nearestBeacon: String?
+  var proximity: Float?
 
   func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
     // Override point for customization after application launch.
+    locationManager.pausesLocationUpdatesAutomatically = true
+    locationManager.requestAlwaysAuthorization()
+    locationManager.delegate = self
+    
+    var uuid = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")
+    beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "Region")
+    beaconRegion!.notifyEntryStateOnDisplay = true
+    
+    locationManager.startMonitoringForRegion(beaconRegion)
+    locationManager.startRangingBeaconsInRegion(beaconRegion)
     return true
   }
 
@@ -40,6 +56,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication!) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+  
+  // Location Delegates
+  func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
+    switch state {
+    case .Inside: println("locationManager didDetermineState INSIDE for \(region.identifier)")
+    case .Outside: println("locationManager didDetermineState OUTSIDE for \(region.identifier)")
+    default: println("locationManager didDetermineState OTHER for \(region.identifier)")
+    }
+  }
+  
+  func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
+
+//    if defaults.boolForKey("homeMachineLearningOn") {
+      if (beacons.count > 0){
+//        println("we made it \(beacons.count)")
+        for beacon in beacons as [CLBeacon] {
+//          println("beacon \(beacon)")
+          switch beacon.proximity {
+          case .Immediate, .Near: proximity = 1.0
+          case .Far: proximity = 0.0
+          default: nearestBeacon = nil; continue
+          }
+          nearestBeacon = "\(beacon.major)+\(beacon.minor)"
+          //          println("Beacon: \(nearestBeacon) \\ Proximity: \(proximity)")
+
+          //          println("Action: \(action)")
+//          switch action {
+//          case 1.0: LightAPI.sharedInstance.lifx.stateOn = true
+//          case -1.0:  LightAPI.sharedInstance.lifx.stateOn = false
+//          default: continue
+//          }
+        }
+      }
+//    }
+  }
+  
+  func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
+    println("monitroing")
+    //    locationManager.startRangingBeaconsInRegion(beaconRegion!)
+  }
+  
+  func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+    //    println("didEnterRegion")
+  }
+  
+  func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+    //    println("didExitRegion")
+  }
+
 
 
 }

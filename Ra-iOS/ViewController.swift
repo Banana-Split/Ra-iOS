@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 //    var (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = (0.0, 0.0, 0.0, 0.0)
 //    pickerView.color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 //    
-    
+
     LightAPI.sharedInstance.firebaseLight.color = pickerView.color
   }
   
